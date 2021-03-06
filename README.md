@@ -1,3 +1,31 @@
+# elegant-theme: A fork of elegant-emacs as a standard Emacs theme
+
+The default theme style is previewed in [Rougier's](https://github.com/rougier/elegant-emacs) original README. See the next section. 
+
+> *Note*: This repo. is only for ease of updating this theme. All copyrights reserved to [Rougier](https://github.com/rougier/elegant-emacs).
+
+To use this theme, clone it and place anywhere your `load-path`
+searches. Then copy the following into your init files:
+
+```lisp
+(require 'elegant-theme)
+(load-theme 'elegant-light t)
+```
+
+or, use `use-package`:
+
+```lisp
+   (use-package elegant-theme
+     :ensure nil
+     :demand
+     :load-path "YOUR_PATH/elegant-theme"
+     :config (load-theme 'elegant-light t)  ;; it's better to load-theme elsewhere
+     )
+```
+
+> :warning: The dark elegant theme has not yet been made.
+
+*Rougier's original README goes as follows*:
 
 # A very minimal but elegant emacs (I think)
 

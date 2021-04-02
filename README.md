@@ -19,8 +19,12 @@ or, use `use-package`:
      :ensure nil
      :demand
      :load-path "YOUR_PATH/elegant-theme"
-     :config (load-theme 'elegant-light t)  ;; it's better to load-theme elsewhere
-     )
+     :init
+     ;; set nil to use elegant-emacs's headline to replace Emacs modeline
+     ;; if you prefer Emacs-style modeline (e.g., doomline etc.), set to "t"
+     (setq elegant-modeline-disabled nil))
+   ;; load the theme
+   (load-theme 'elegant-light t)
 ```
 
 > :warning: The dark elegant theme has not yet been made.

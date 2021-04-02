@@ -78,12 +78,12 @@
 
   ;; set modeline at the top
   (setq-default header-line-format mode-line-format)
-  (setq-default mode-line-format'("")))
+  (setq-default mode-line-format '("")))
 
 ;;; Modeline faces
 (defun elegant-set-modeline-faces ()
   "Mode line at top."
-  (set-face 'header-line                                 'elegant-strong)
+  (set-face 'header-line 'elegant-strong)
   (set-face-attribute 'header-line nil
                       :underline (face-foreground 'default))
   (set-face-attribute 'mode-line nil
@@ -93,7 +93,7 @@
                       :box nil
                       :foreground (face-background 'default)
                       :background (face-background 'default))
-  (set-face 'mode-line-inactive                            'mode-line)
+  (set-face 'mode-line-inactive 'mode-line)
   (set-face-attribute 'cursor nil
                       :background (face-foreground 'default))
   (set-face-attribute 'window-divider nil

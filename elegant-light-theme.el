@@ -327,6 +327,7 @@
             ;; ---------------- END package faces ----------------
             ))))
 
+;; NOT used
 (when elegant-modeline-disabled
   (let ((class '((class color) (min-colors 88) (background light))))
     (apply 'custom-theme-set-faces 'elegant-light

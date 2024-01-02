@@ -10,7 +10,8 @@
       (append (list '(internal-border-width . 24)
                     '(width  . 81) '(height . 45)
                     '(font . "Roboto Mono Light 14")
-                    '(vertical-scroll-bars . nil))
+                    '(vertical-scroll-bars . nil)
+                    '(bottom-divider-width . 1))
               default-frame-alist))
 
 ;;; Line spacing, can be 0 for code and 1 or 2 for text
@@ -42,11 +43,6 @@
                       :underline  'unspecified :overline   'unspecified
                       :box        'unspecified :inherit    style))
 
-;;; Vertical window divider
-(setq window-divider-default-right-width 3)
-(setq window-divider-default-places 'right-only)
-(window-divider-mode)
-
 ;;; Mode line rendering
 (defun elegant-set-modeline ()
   "Mode line default used in elegant-emacs."
@@ -74,7 +70,7 @@
                                        (if (and buffer-file-name (buffer-modified-p))
                                            (propertize "(modified)" 'face `(:inherit elegant-faded)))))
                     (format-mode-line
-                     (propertize "%4l:%2c" 'face `(:inherit elegant-faded)))))))
+                     (propertize "%4l:%2c" 'face `(:inherit modeline)))))))
 
   ;; set modeline at the top
   (setq-default header-line-format mode-line-format)
@@ -97,16 +93,14 @@
   (set-face-attribute 'cursor nil
                       :background (face-foreground 'default))
   (set-face-attribute 'window-divider nil
-                      :foreground (face-background 'mode-line))
-  (set-face-attribute 'window-divider-first-pixel nil
-                      :foreground (face-background 'default))
-  (set-face-attribute 'window-divider-last-pixel nil
-                      :foreground (face-background 'default)))
+                      :foreground (face-foreground 'mode-line)
+                      :background (face-background 'mode-line))
+  )
 
 ;; load modeline setup (use headline instead)
 (unless elegant-modeline-disabled
-  (elegant-set-modeline)
-  (elegant-set-modeline-faces))
+  (elegant-set-modeline-faces)
+  (elegant-set-modeline))
 
 ;;;###autoload
 (and load-file-name
@@ -114,6 +108,7 @@
      (add-to-list 'custom-theme-load-path
                   (file-name-as-directory
                    (file-name-directory load-file-name))))
+
 
 (provide 'elegant-theme)
 ;; ----------------------------------------------------------------

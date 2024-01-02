@@ -52,14 +52,16 @@
             (elegant-critical :foreground ,fg-critical :background ,bg-critical)
             (elegant-popout   :foreground ,fg-popout)
             (elegant-strong   :foreground ,fg-strong   :weight regular)
-            (elegant-salient  :foreground ,fg-salient  :weight light)
+            (elegant-salient  :foreground ,fg-salient  :weight regular)  ;; light
             (elegant-faded    :foreground ,fg-faded    :weight light)
             (elegant-subtle   :background ,bg-subtle)
 
             ;; Structural
-            (bold              :inherit     elegant-strong)
-            (italic            :inherit      elegant-faded)
-            (bold-italic       :inherit     elegant-strong)
+            (bold              :inherit     elegant-strong  :weight      bold)
+            (italic            :inherit      elegant-faded  :slant     italic)
+            (underline         :inherit      elegant-faded  :underline      t)
+            (bold-italic       :inherit     elegant-strong
+                               :weight                bold  :slant italic)
             (region            :background       ,fg-faded)
             (highlight         :inherit     elegant-subtle)
             (hl-line           :inherit     elegant-subtle)
@@ -207,6 +209,9 @@
             (term-color-red     :foreground "#EF5350" :background "#FFCDD2")
             (term-color-yellow  :foreground "#FFEE58" :background "#FFF9C4")
 
+            ;; dired
+            (dired-directory    :weight bold)
+
             ;; org-agendas
             (org-agenda-calendar-event   :inherit             default)
             (org-agenda-calendar-sexp    :inherit       elegant-faded)
@@ -235,7 +240,9 @@
             (org-checkbox-statistics-done   :inherit      elegant-faded)
             (org-checkbox-statistics-todo   :inherit      elegant-faded)
             (org-clock-overlay              :inherit      elegant-faded)
-            (org-code                       :inherit      elegant-faded)
+            ;; (org-code                       :inherit      elegant-faded)
+            (org-code                       :inherit      elegant-faded
+                                            :foreground       "#2188b6")
             (org-column                     :inherit      elegant-faded)
             (org-column-title               :inherit      elegant-faded)
             (org-date                       :inherit      elegant-faded)
@@ -243,8 +250,9 @@
             (org-default                    :inherit      elegant-faded)
             (org-document-info              :inherit      elegant-faded)
             (org-document-info-keyword      :inherit      elegant-faded)
-            (org-document-title             :inherit      elegant-faded)
-            (org-done                       :inherit         default)
+            (org-document-title             :inherit      elegant-faded
+                                            :weight bold)
+            (org-done                       :inherit            default)
             (org-drawer                     :inherit      elegant-faded)
             (org-ellipsis                   :inherit      elegant-faded)
             (org-footnote                   :inherit      elegant-faded)
@@ -273,7 +281,7 @@
             (org-scheduled-today            :inherit      elegant-faded)
             (org-sexp-date                  :inherit      elegant-faded)
             (org-special-keyword            :inherit      elegant-faded)
-            (org-table                      :inherit         default)
+            (org-table                      :inherit            default)
             (org-tag                        :inherit      elegant-faded)
             (org-tag-group                  :inherit      elegant-faded)
             (org-target                     :inherit      elegant-faded)
